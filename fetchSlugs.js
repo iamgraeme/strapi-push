@@ -2,8 +2,8 @@ const axios = require("axios");
 const fs = require("fs");
 const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 
-const STRAPI_BASE_URL = "https://cms.wlloyalty.net";
-const WEBSITE_BASE_URL = "https://whitelabel-loyalty.com";
+const STRAPI_BASE_URL = "strapi_url_here";
+const WEBSITE_BASE_URL = "website_url_here";
 
 let seoToolsEntries = [];
 
@@ -27,7 +27,7 @@ async function updateOrCreateSEOTool(slug, fullPath, isIndexable = true) {
 
     seoToolsEntries.push(seoToolsData);
 
-    await axios.post(`${"https://cms.wlloyalty.net"}/sitemaps`, seoToolsData);
+    await axios.post(`${STRAPI_BASE_URL}/sitemaps`, seoToolsData);
     console.log(
       `Created new SEOTools entry for slug: ${slug} with path: ${fullPath}`
     );
